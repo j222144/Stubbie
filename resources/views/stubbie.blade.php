@@ -15,7 +15,7 @@
     <title>URL Shortener</title>
 </head>
 <body>
-    <div class="grid-container">
+    <div class="grid-container fluid">
         <div class="grid-x">
             <div class="cell text-center float-center">
                 <form action='#' autocomplete="off">
@@ -27,39 +27,61 @@
         </div>
 
 
-        <div class="stubby-table">
-            <div class="stubby-url-area">
-                <div class="grid-x stubby-titles">
-                    <div class="cell medium-3">
-                        <li>Stubby URL</li>
-                    </div>
-                    <div class="cell medium-5">
-                        <li>Original URL</li>
-                    </div>
-                    <div class="cell medium-2">
-                        <li>Expires in</li>
-                    </div>
-                    <div class="cell medium-2">
-                        <li>Action</li>
-                    </div>
-                </div>
-                <div class="grid-x stubby-data">
-                    <div class="cell small-12 stubby-item">
-                        <div class="cell small-3">
-                            <a href="#" target="_blank">Shortened URL data</a>
-                        </div>
-                        <div class="cell small-5">
-                            Full URL data
-                        </div>
-                        <div class="cell small-2">
-                            expires
-                        </div>
-                        <div class="cell small-2">
-                            <a href="#">Delete</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="cell stubby-table">
+            <table>
+                <thead>
+                    <tr class="stubby-table-head">
+                        <th class="column-short-url">Stubby URL</th>
+                        <th class="column-long-url">Website URL</th>
+                        <th class="column-name">Name</th>
+                        <th class="column-expiry">Expires in</th>
+                        <th class="column-action">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="column-short-url"><a href="#">stubby.com/haha</a></td>
+                    <td class="column-long-url"><a href="#">www.youtube.com</a></td>
+                    <td class="column-name">Funny Youtube video</td>
+                    <td class="column-expiry">3.5 days</td>
+                    <td class="column-action"><a href="#"><strong>Delete</strong></a></td>
+                </tr>
+                <tr>
+                    <td class="column-short-url"><a href="#">stubby.com/haha</a></td>
+                    <td class="column-long-url"><a href="#">www.youtube.com</a></td>
+                    <td class="column-name">Funny Youtube video</td>
+                    <td class="column-expiry">3.5 days</td>
+                    <td class="column-action"><a href="#"><strong>Delete</strong></a></td>
+                </tr>
+                <tr>
+                    <td class="column-short-url"><a href="#">stubby.com/haha</a></td>
+                    <td class="column-long-url"><a href="#">www.youtube.com</a></td>
+                    <td class="column-name">Funny Youtube video</td>
+                    <td class="column-expiry">3.5 days</td>
+                    <td class="column-action"><a href="#"><strong>Delete</strong></a></td>
+                </tr>
+                <tr>
+                    <td class="column-short-url"><a href="#">stubby.com/haha</a></td>
+                    <td class="column-long-url"><a href="#">www.youtube.com</a></td>
+                    <td class="column-name">Funny Youtube video</td>
+                    <td class="column-expiry">3.5 days</td>
+                    <td class="column-action"><a href="#"><strong>Delete</strong></a></td>
+                </tr>
+                <tr>
+                    <td class="column-short-url"><a href="#">stubby.com/haha</a></td>
+                    <td class="column-long-url"><a href="#">www.youtube.com</a></td>
+                    <td class="column-name">Funny Youtube video</td>
+                    <td class="column-expiry">3.5 days</td>
+                    <td class="column-action"><a href="#"><strong>Delete</strong></a></td>
+                </tr>
+                <tr>
+                    <td class="column-short-url"><a href="#">stubby.com/haha</a></td>
+                    <td class="column-long-url"><a href="#">www.youtube.com</a></td>
+                    <td class="column-name">Funny Youtube video</td>
+                    <td class="column-expiry">3.5 days</td>
+                    <td class="column-action"><a href="#"><strong>Delete</strong></a></td>
+                </tr>
+                </tbody>
         </div>
     </div>
 
