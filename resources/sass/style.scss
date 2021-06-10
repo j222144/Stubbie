@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppings:wght@200;300;400;500;600;700&display=swap');
+$backgroundEdge: rgba(0,34,78,1) 100%;
+$backgroundMiddle: rgba(202,199,255,1) 0%;
+$backgroundTransition: rgba(132,175,219,1) 35%;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 10px;
+    background: radial-gradient(circle, $backgroundMiddle, $backgroundTransition, $backgroundEdge);
+}
+.button{
+    background: $backgroundEdge;
+    border-radius: 15px;
+}
+
+.stubby-table{
+    background: #fff;
+    padding: 20px;
+    width: 800px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+    a{
+        color: #000;
+    }
+    .stubby-url-area{
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        max-height: 400px;
+        overflow-y: scroll;
+    }
+}
+.stubby-url-area{
+    li{
+        width: 100%;
+        list-style: none;
+        border-right: 1px solid #ddd;
+        /*&:last-child{
+            border-right: 0px;
+        }
+        &:nth-child(1){
+            max-width: 30%;
+        }
+        &:nth-child(2){
+            max-width: 45%;
+        }
+        &:nth-child(3){
+            max-width: 11%;
+        }
+        &:nth-child(4){
+            max-width: 14%;
+        }*/
+    }
+    .stubby-titles li{
+        text-align: center;
+        background: #f2f2f2;
+        padding: 10px 0;
+        float: left;
+    }
+    .stubby-data{
+        padding: 8px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        word-break: break-all;
+        li{
+            padding: 1px 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            word-break: break-all;
+            float: none;
+            /*&:last-child a{
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:hover{
+                    text-decoration: none;
+                }
+            }*/
+            a:hover{
+                color: #20B2AA;
+                text-decoration: underline;
+            }
+        }
+        &:nth-child(odd){
+            background: #f2f2f2;
+        }
+    }
+    .stubby-item{
+        float: left;
+        li{
+            border: 1px solid #000;
+            float: left;
+        }
+    }
+}
