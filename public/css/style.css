@@ -8,7 +8,7 @@ body {
 }
 
 .bg-grey {
-  background: #e5e5e5;
+  background: #f1f1f1;
 }
 
 table * {
@@ -21,7 +21,7 @@ table * {
 }
 
 .rounded {
-  border-radius: 8px;
+  border-radius: 15px;
 }
 
 .vertical-center {

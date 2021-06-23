@@ -6,7 +6,7 @@
                     <div class="col-sm text-center float-center">
                         <form action='#' autocomplete="off">
                             @csrf
-                            <div class="row">
+                            <div class="row justify-content-center">
                                 <div class="col-sm-12 col-md-6 col-lg-4">
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" placeholder="Long URL..." name="long_url">
@@ -17,7 +17,7 @@
                                         <input type="text" class="form-control" placeholder="Short URL..." name="short_url">
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-12 col-lg-4">
+                                <div class="col-sm-12 col-md-12 col-lg-8">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon3">stubbyapp.com/</span>
