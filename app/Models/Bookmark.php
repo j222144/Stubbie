@@ -18,8 +18,8 @@ class Bookmark extends Model
         'favourite',
     ];
 
-    public function user(){
-        $this->belongsTo(User::class);
+    public function users(){
+        return $this->belongsToMany(User::class,'user_bookmarks','user_id','bookmark_id');
     }
 
     public function team(){

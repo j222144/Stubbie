@@ -64,6 +64,6 @@ class User extends Authenticatable
     }
 
     public  function bookmark(){
-        $this->hasMany(Bookmark::class);
+        $this->belongsToMany(Bookmark::class,'user_bookmark','user_id','bookmark_id');
     }
 }
