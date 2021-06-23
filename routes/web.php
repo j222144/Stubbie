@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('stubbie');
+Route::get('/stubby', function () {
+    return view('stubby.stubbie');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
