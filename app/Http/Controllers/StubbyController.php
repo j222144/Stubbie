@@ -14,7 +14,8 @@ class StubbyController extends Controller
      */
     public function index()
     {
-        //
+        $stubbies = Stubby::all();
+        return view('stubby.index', ['stubbies' => $stubbies]);
     }
 
     /**
