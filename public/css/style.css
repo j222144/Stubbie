@@ -1,0 +1,33 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppings:wght@200;300;400;500;600;700&display=swap);
+body {
+  background: radial-gradient(circle, #cac7ff 0%, #84afdb 35%, #00224e 100%);
+}
+
+.jumbotron {
+  background: transparent;
+}
+
+.bg-grey {
+  background: #e5e5e5;
+}
+
+table * {
+  position: relative;
+}
+
+.button {
+  border-radius: 5px;
+  background-color: #5241a8;
+}
+
+.rounded {
+  border-radius: 8px;
+}
+
+.vertical-center {
+  min-height: 100%;
+  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh;
+  /* These two lines are counted as one :-)       */
+  align-items: center;
+}
