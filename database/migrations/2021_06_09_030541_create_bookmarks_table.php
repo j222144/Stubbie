@@ -19,7 +19,7 @@ class CreateBookmarksTable extends Migration
             $table->unsignedBigInteger('team_id')->nullable();
             $table->string('bookmark_name');
             $table->string('website_url');
-            $table->boolean('private')->default(true);
+            $table->boolean('private')->default(false);
             $table->boolean('favourite')->default(false);
             $table->timestamps();
         });

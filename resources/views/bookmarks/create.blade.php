@@ -419,48 +419,29 @@
 
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
         <body class="antialiased">
-
         <div class="mt-8 mx-auto">
-            <table class="w-100">
-                <tr>
-                    <th>ID</th>
-                    <th>Bookmark name</th>
-                    <th>By</th>
-                    <th>Bookmark URL</th>
-                    <th>Options</th>
-                </tr>
-                <tbody>
-                @foreach($bookmarks as $bookmark)
+            <?php $bookmark = new \App\Models\Bookmark();?>
+            <form method="POST" action="{{route('bookmarks.store',$bookmark)}}">
+                @csrf
+                <table>
                     <tr>
-                        <td class="text-center">{{$bookmark->id}}</td>
-                        <td class="text-center">{{$bookmark->bookmark_name}}</td>
-                        <td class="text-center">
-                            @foreach($bookmark->users as $user)
-                                {{$user->name}}
-                            @endforeach
-                        </td>
-                        <td class="text-center">{{$bookmark->website_url}}</td>
-                        <td class="flex justify-center">
-                            <form method="GET" action="{{route('bookmarks.show',$bookmark->id)}}">
-                                @csrf
-                                <button class="button button-primary" type="submit">view</button>
-                            </form>
-                            <form method="POST" action="{{route('bookmarks.destroy',$bookmark)}}">
-                                @method('DELETE')
-                                @csrf
-                                <button class="button button-red" type="submit">Delete</button>
-                            </form>
-                            <form method="GET" action="{{route('bookmarks.edit',$bookmark)}}">
-                                @csrf
-                                <button class="button button-red" type="submit">Edit</button>
-                            </form>
-                        </td>
+                        <th>Bookmark Name</th>
+                        <th>URL</th>
+                        <th>Private</th>
+                        <th>Favourite</th>
                     </tr>
-                @endforeach
-                </tbody>
-            </table>
+                    <tbody>
+                    <tr>
+                        <td><input type="text" id="bname" name="name" value="{{$bookmark->bookmark_name}}" required></td>
+                        <td><input type="text" id="burl" name="bookmark_url" value="{{$bookmark->bookmark_url}}" required></td>
+                        <td style="text-align: center"><input name="private" id="bprivate" type="checkbox" value="true" ></td>
+                        <td style="text-align: center"><input name="favourite" id="bfavourite" type="checkbox" value="true"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button class="button button-primary" type="submit">Create</button>
+            </form>
         </div>
         </body>
     </div>
@@ -468,6 +449,10 @@
 
 </body>
 </html>
+
+
+
+
 
 
 

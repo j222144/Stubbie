@@ -23,3 +23,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::resource('bookmarks',\App\Http\Controllers\BookmarkController::class);
+Route::resource('teams', \Laravel\Jetstream\Http\Controllers\Livewire\TeamController::class);
