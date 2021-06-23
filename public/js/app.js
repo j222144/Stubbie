@@ -3802,46 +3802,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
-$(document).ready(function () {
-  // inspired by http://jsfiddle.net/arunpjohny/564Lxosz/1/
-  $('.table-responsive-stack').each(function (i) {
-    var id = $(this).attr('id'); //alert(id);
-
-    $(this).find("th").each(function (i) {
-      $('#' + id + ' td:nth-child(' + (i + 1) + ')').prepend('<span class="table-responsive-stack-thead">' + $(this).text() + ':</span> ');
-      $('.table-responsive-stack-thead').hide();
-    });
-  });
-  $('.table-responsive-stack').each(function () {
-    var thCount = $(this).find("th").length;
-    var rowGrow = 100 / thCount + '%'; //console.log(rowGrow);
-
-    $(this).find("th, td").css('flex-basis', rowGrow);
-  });
-
-  function flexTable() {
-    if ($(window).width() < 768) {
-      $(".table-responsive-stack").each(function (i) {
-        $(this).find(".table-responsive-stack-thead").show();
-        $(this).find('thead').hide();
-      }); // window is less than 768px
-    } else {
-      $(".table-responsive-stack").each(function (i) {
-        $(this).find(".table-responsive-stack-thead").hide();
-        $(this).find('thead').show();
-      });
-    } // flextable
-
-  }
-
-  flexTable();
-
-  window.onresize = function (event) {
-    flexTable();
-  }; // document ready
-
-});
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -21087,19 +21047,6 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
-/***/ "./resources/sass/style.scss":
-/*!***********************************!*\
-  !*** ./resources/sass/style.scss ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
@@ -21417,7 +21364,6 @@ process.umask = function() { return 0; };
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/style": 0,
 /******/ 			"css/app": 0
 /******/ 		};
 /******/ 		
@@ -21466,9 +21412,8 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/style","css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/style","css/app"], () => (__webpack_require__("./resources/sass/style.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/style","css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

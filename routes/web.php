@@ -24,3 +24,6 @@ Route::get('/stubby', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+Route::resource('bookmarks',\App\Http\Controllers\BookmarkController::class);

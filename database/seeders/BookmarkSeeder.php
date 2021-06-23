@@ -23,14 +23,14 @@ class BookmarkSeeder extends Seeder
                 'favourite'=>false,
             ],
             [
-                'user_id'=>'1',
+                'user_id'=>'3',
                 'bookmark_name'=>'SecondBookmark',
                 'website_url'=>'https://stackoverflow.com/questions/464474/check-if-a-sql-table-exists',
                 'private'=>false,
                 'favourite'=>false,
             ],
             [
-                'user_id'=>'1',
+                'user_id'=>'2',
                 'bookmark_name'=>'ThirdBookmark',
                 'website_url'=>'https://stackoverflow.com/questions/47630950/how-can-i-switch-to-another-branch-in-git',
                 'private'=>false,
@@ -39,7 +39,10 @@ class BookmarkSeeder extends Seeder
         ];
 
         foreach ($bookmarks as $bookmark){
-            Bookmark::create($bookmark);
+            $bookmarkItem = new Bookmark();
+            $bookmarkItem->fill($bookmark);
+            $bookmarkItem->save();
+            $bookmarkItem->users()->attach($bookmarkItem->user_id);
         }
     }
 }
