@@ -20,10 +20,10 @@ Route::get('/', function () {
 
 Route::resource('stubbies', StubbyController::class);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
+Route::middleware(['auth:sanctum', 'verified'])->get('/stubbies', function () {
+    return view('stubby.index', ['stubbies'=>\App\Models\Stubby::all()]);
+})->name('home');
 
 Route::resource('bookmarks',\App\Http\Controllers\BookmarkController::class);
 Route::resource('teams', \Laravel\Jetstream\Http\Controllers\Livewire\TeamController::class);
+

@@ -27,3 +27,107 @@ body {
   /* These two lines are counted as one :-)       */
   align-items: center;
 }
+
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.padding-top15 {
+  padding-top: 15px;
+}
+
+.transparent {
+  background-color: transparent !important;
+}
+
+.padding-all0 {
+  padding: 0;
+}
+
+.noBorder {
+  border: 0;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.bookmarkNavColor {
+  background-color: rgba(100, 100, 100, 0.7);
+}
+
+.max-height-2rem {
+  max-height: 2rem;
+}
+
+.overflow {
+  overflow-x: auto;
+}
+
+.fixed-layout {
+  table-layout: fixed;
+}
+
+.minimal {
+  border-collapse: collapse;
+  border-spacing: 0;
+  -webkit-border-horizontal-spacing: 0px;
+  -webkit-border-vertical-spacing: 0px;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.f-05 {
+  font-size: 1em;
+}
+
+.align-center {
+  text-align: center !important;
+}
+
+.myButton {
+  display: inline-block;
+  color: #a0aec0;
+  -o-border-image: none;
+     border-image: none;
+  border-radius: 2px;
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0;
+  line-height: 2;
+  white-space: nowrap;
+  font-weight: 500;
+  background: #5241a8;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.button-wid-3rem {
+  width: 3rem;
+}
+
+.wordWrap {
+  word-wrap: break-word;
+}
+
+.display-table {
+  display: table;
+}

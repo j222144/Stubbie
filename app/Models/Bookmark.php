@@ -25,4 +25,5 @@ class Bookmark extends Model
     public function team(){
         $this->belongsTo(Team::class);
     }
+
 }
