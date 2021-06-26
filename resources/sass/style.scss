@@ -4,10 +4,44 @@ $backgroundMiddle: rgba(202,199,255,1) 0%;
 $backgroundTransition: rgba(132,175,219,1) 35%;
 $hover-colour: #5241a8;
 $table-hover-colour: rgba(128, 187, 255, 0.43);
-*{
-}
+
 body{
     background: radial-gradient(circle, $backgroundMiddle, $backgroundTransition, $backgroundEdge);
+}
+.stubby-table {
+    table-layout: fixed;
+    text-overflow: ellipsis;
+    thead{
+        th:first-child{
+            width: 25%;
+        }
+        th:nth-child(2){
+            width: 40%;
+        }
+        th:nth-child(3){
+            width: 15%
+        }
+        th:nth-child(4){
+            width: 10%;
+        }
+        th:last-child{
+            width: 10%
+        }
+        th{
+            text-overflow: ellipsis;
+        }
+    }
+    tbody{
+        td{
+            word-wrap: break-word;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        td:last-child{
+            word-wrap: normal;
+        }
+    }
 }
 .jumbotron{
     background: transparent;
@@ -20,7 +54,7 @@ body{
     background-color: $hover-colour;
 }
 .rounded{
-    border-radius: 15px;
+    border-radius: 10px;
 }
 .vertical-center {
     min-height: 100%;  /* Fallback for browsers do NOT support vh unit */

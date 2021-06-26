@@ -5,14 +5,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{route('dashboard')}}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Stubby's</a>
+            <li class="nav-item {{ (request()->is('/stubbies*')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{route('stubbies.index')}}">Stubby's</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Bookmarks</a>
+            <li class="nav-item {{ (request()->is('/bookmarks*')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{route('bookmarks.index')}}">Bookmarks</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -24,7 +24,7 @@
                     <a class="dropdown-item" href="#">team3</a>
                 </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ (request()->is('/profile*')) ? 'active' : '' }}">
                 <a class="nav-link" href="#">Profile</a>
             </li>
         </ul>
