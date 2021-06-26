@@ -29,3 +29,5 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 Route::resource('bookmarks',\App\Http\Controllers\BookmarkController::class);
+Route::resource('teams', \Laravel\Jetstream\Http\Controllers\Livewire\TeamController::class);
+
