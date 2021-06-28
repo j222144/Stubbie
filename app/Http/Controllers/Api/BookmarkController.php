@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Bookmark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,7 @@ class BookmarkController extends Controller
     public function index()
     {
         $bookmarks = Bookmark::all();
-        return view('bookmarks.index', ['bookmarks' => $bookmarks]);
+        return response()->json($bookmarks, 200);
     }
 
     /**
@@ -43,16 +44,18 @@ class BookmarkController extends Controller
      */
     public function store(Request $request)
     {
-        $bookmark = new Bookmark();
-        $bookmark->fill($request->all());
-        $bookmark->user_id = Auth::id();
-        if ($request['favourite'] == 'true')
-            $bookmark->favourite = true;
-        if ($request['private'] == 'true')
-            $bookmark->private = true;
-        $bookmark->save();
+        $this->validate(
+            $request, [
+            'user_id' => 'required|int',
+            'bookmark_name' => 'required',
+            'website_url' => 'required',
+            'private' => 'required|boolean',
+            'favourite' => 'required|boolean',
+        ]);
+
+        $bookmark = Bookmark::create($request->all());
         $bookmark->users()->attach($bookmark->user_id);
-        return redirect(route('bookmarks.index'));
+        return response()->json($bookmark, 201);
     }
 
     /**
@@ -63,12 +66,8 @@ class BookmarkController extends Controller
      */
     public function show(Bookmark $bookmark)
     {
-        $isCollection = false;
-        if (is_a($bookmark, 'Illuminate\Database\Eloquent\Collection'))
-            $isCollection = true;
 
-        return view('bookmarks.show', ['bookmarks' => $bookmark, 'isCollection' => $isCollection]);
-
+        return response()->json($bookmark, 200);
 
     }
 
@@ -80,12 +79,7 @@ class BookmarkController extends Controller
      */
     public function edit(Bookmark $bookmark)
     {
-        if (Auth::check()) {
-            return view('bookmarks.edit', compact('bookmark'));
-        } else {
-            return redirect(route('login'));
-        }
-
+        return view('bookmarks.edit', compact('bookmark'));
     }
 
     /**
@@ -93,26 +87,23 @@ class BookmarkController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Bookmark $bookmark
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Bookmark $bookmark)
     {
 
-        $bookmark->user_id = Auth::id();
-        $bookmark->fill($request->all());
-        if ($request['favourite'] == 'true')
-            $bookmark->favourite = true;
-        else
-            $bookmark->favourite = false;
-        if ($request['private'] == 'true')
-            $bookmark->private = true;
-        else
-            $bookmark->private = false;
+        $this->validate(
+            $request, [
+            'user_id' => 'required|int',
+            'bookmark_name' => 'required',
+            'website_url' => 'required',
+            'private' => 'required|boolean',
+            'favourite' => 'required|boolean',
+        ]);
+
+        $bookmark->update($request->all());
         $bookmark->users()->sync($bookmark->user_id);
-        $bookmark->save();
-        return redirect(route('bookmarks.index'));
-
-
+        return response()->json($bookmark, 201);
     }
 
     /**
@@ -123,10 +114,9 @@ class BookmarkController extends Controller
      */
     public function destroy(Bookmark $bookmark)
     {
-        $deletedID = $bookmark->id;
         $bookmark->users()->sync([]);
         $bookmark->delete();
-        return redirect(route('bookmarks.index'));
+        return response()->json($bookmark, 204);
     }
 
     /**
