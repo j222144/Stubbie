@@ -14,7 +14,7 @@ class StubbyController extends Controller
      */
     public function index()
     {
-        $stubbies = Stubby::all();
+        $stubbies = Stubby::where('user_id', auth()->user()->id)->get();
         return view('stubby.index', ['stubbies' => $stubbies]);
     }
 
@@ -25,7 +25,7 @@ class StubbyController extends Controller
      */
     public function create()
     {
-        //
+        return view('stubby.create');
     }
 
     /**
@@ -36,7 +36,20 @@ class StubbyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'long_url' => 'required',
+            'stubby_name' => 'required',
+            'short_url' => 'required',
+        ]);
+
+        $stubby = new Stubby();
+        $stubby->long_url = $request->long_url;
+        $stubby->stubby_name = $request->stubby_name;
+        $stubby->short_url = "stubbyapp.com/{$request->short_url}";
+        $stubby->user_id = auth()->user()->id;
+        $stubby->is_active = true;
+        $stubby->save();
+        return redirect(route('stubbies.index'));
     }
 
     /**
@@ -47,7 +60,9 @@ class StubbyController extends Controller
      */
     public function show(Stubby $stubby)
     {
-        //
+        return view('stubby.index', [
+            'stubbies' => $stubby,
+        ]);
     }
 
     /**
@@ -58,7 +73,9 @@ class StubbyController extends Controller
      */
     public function edit(Stubby $stubby)
     {
-        //
+        return view('stubby.show', [
+            'stubby' => $stubby,
+        ]);
     }
 
     /**
@@ -70,7 +87,18 @@ class StubbyController extends Controller
      */
     public function update(Request $request, Stubby $stubby)
     {
-        //
+        $this->validate($request, [
+            'long_url' => 'required|string',
+            'stubby_name' => 'required',
+            'short_url' => 'required',
+        ]);
+
+        $update = Stubby::find($stubby->id);
+        $update->fill($request->all());
+        $update->save();
+
+
+        return redirect(route('stubbies.index'));
     }
 
     /**
@@ -81,6 +109,7 @@ class StubbyController extends Controller
      */
     public function destroy(Stubby $stubby)
     {
-        //
+        $stubby->delete();
+        return redirect(route('stubbies.index'));
     }
 }

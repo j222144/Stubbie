@@ -27,5 +27,8 @@ class StubbySeeder extends Seeder
         foreach($stubbies as $stubby){
             Stubby::create($stubby);
         }
+        Stubby::factory()
+            ->count(120)
+            ->create();
     }
 }

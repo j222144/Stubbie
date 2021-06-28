@@ -9,12 +9,31 @@ $table-hover-colour: rgba(128, 187, 255, 0.43);
 body{
     background: radial-gradient(circle, $backgroundMiddle, $backgroundTransition, $backgroundEdge);
 }
+.mobile-table {
+    width: 100%;
+
+    th {
+        padding: 10px;
+        display: block;
+        text-align: center;
+    }
+
+    td {
+        padding: 10px;
+        display: block;
+        text-align: center;
+    }
+    tr {
+        border: 2px black;
+    }
+}
 .stubby-table {
+    width: 100%;
     table-layout: fixed;
-    text-overflow: ellipsis;
+    word-wrap: break-word;
     thead{
         th:first-child{
-            width: 25%;
+            width: 15%;
         }
         th:nth-child(2){
             width: 40%;
@@ -23,24 +42,27 @@ body{
             width: 15%
         }
         th:nth-child(4){
-            width: 10%;
+            width: 15%;
         }
         th:last-child{
-            width: 10%
+            width: 15%
         }
         th{
             text-overflow: ellipsis;
         }
     }
     tbody{
-        td{
-            word-wrap: break-word;
-            overflow-x: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        td:last-child{
-            word-wrap: normal;
+        tr {
+            td {
+                word-wrap: break-word;
+            }
+
+            td:nth-child(3) {
+            }
+
+            td:last-child {
+                word-wrap: normal;
+            }
         }
     }
 }

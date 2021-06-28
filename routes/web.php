@@ -25,9 +25,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::resource('stubbies', StubbyController::class);
+    Route::resource('stubbies', \App\Http\Controllers\StubbyController::class);
+    Route::resource('bookmarks',\App\Http\Controllers\BookmarkController::class);
+    Route::resource('teams', \Laravel\Jetstream\Http\Controllers\Livewire\TeamController::class);
 });
 
 Route::resource('bookmarks',\App\Http\Controllers\BookmarkController::class);
 Route::resource('teams', \Laravel\Jetstream\Http\Controllers\Livewire\TeamController::class);
+
 
