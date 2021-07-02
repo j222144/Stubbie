@@ -92,15 +92,6 @@ class BookmarkController extends Controller
     public function update(Request $request, Bookmark $bookmark)
     {
 
-        $this->validate(
-            $request, [
-            'user_id' => 'required|int',
-            'bookmark_name' => 'required',
-            'website_url' => 'required',
-            'private' => 'required|boolean',
-            'favourite' => 'required|boolean',
-        ]);
-
         $bookmark->update($request->all());
         $bookmark->users()->sync($bookmark->user_id);
         return response()->json($bookmark, 201);

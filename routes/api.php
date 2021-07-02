@@ -21,8 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('bookmarks', [\App\Http\Controllers\Api\BookmarkController::class, 'index']);
-
 Route::get('bookmarks/{bookmark}', '\App\Http\Controllers\Api\BookmarkController@show');
 Route::post('bookmarks', '\App\Http\Controllers\Api\BookmarkController@store');
-Route::post('bookmarks/{bookmark}', '\App\Http\Controllers\Api\BookmarkController@update');
+Route::put('bookmarks/{bookmark}', '\App\Http\Controllers\Api\BookmarkController@update');
 Route::delete('bookmarks/{bookmark}', '\App\Http\Controllers\Api\BookmarkController@destroy');
